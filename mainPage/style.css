@@ -17,6 +17,7 @@ main {
 }
 .inside-info {
   display: flex;
+  flex-wrap: wrap;
 }
 .inside-info > div {
   flex-grow: 1;
