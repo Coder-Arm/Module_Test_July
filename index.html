@@ -49,7 +49,9 @@
       document.querySelector("button").addEventListener("click", async () => {
         try {
           const response = await fetch(
-            `http://ip-api.com/json/${JSON.parse(localStorage.getItem("ip"))}`
+            `https://ipinfo.io/${JSON.parse(
+              localStorage.getItem("ip")
+            )}?token=9bebe15427beac`
           );
           const result = await response.json();
           localStorage.setItem("ip-info", JSON.stringify(result));
