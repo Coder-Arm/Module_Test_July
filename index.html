@@ -56,7 +56,8 @@
         } catch (error) {
           console.log(error.message);
         }
-        window.location.href = "./mainPage/index.html";
+        if (localStorage.getItem("ip-info"))
+          window.location.href = "./mainPage/index.html";
       });
     </script>
   </body>
