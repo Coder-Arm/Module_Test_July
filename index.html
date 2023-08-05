@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Post Office Application</title>
+  </head>
+  <body>
+    <main>
+      <section class="left-box">
+        <h1 style="color: #575a85">Post Office Application</h1>
+        <p style="color: white; margin: 20px 0 75px 0">
+          This Application Allows you to extract information about the nearest
+          Post Offices, based on your location.
+        </p>
+        <img src="./assets/messenger.png" alt="messenger-photo" />
+      </section>
+      <section class="right-box">
+        <p style="color: #b8bccc; font-size: 28px; font-weight: 700">
+          Your Current IP Address is
+          <span id="ip-address" style="color: white; font-weight: 700"></span>
+        </p>
+        <button>Get Started</button>
+      </section>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      async function fetchIp() {
+        try {
+          const response = await fetch("https://api.ipify.org/?format=json");
+          const result = await response.json();
+          localStorage.setItem("ip", JSON.stringify(result.ip));
+          address(result);
+        } catch (error) {
+          console.log(error.message);
+        }
+      }
+      fetchIp();
+      const address = (result) =>
+        (document.getElementById("ip-address").innerText = result.ip);
+
+      document.querySelector("button").addEventListener("click", async () => {
+        try {
+          const response = await fetch(
+            `http://ip-api.com/json/${JSON.parse(localStorage.getItem("ip"))}`
+          );
+          const result = await response.json();
+          localStorage.setItem("ip-info", JSON.stringify(result));
+        } catch (error) {
+          console.log(error.message);
+        }
+        window.location.href = "./mainPage/index.html";
+      });
+    </script>
+  </body>
+</html>

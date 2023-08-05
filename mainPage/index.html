@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Main Page</title>
+  </head>
+  <body>
+    <main>
+      <section class="ip-info">
+        <div>IP Address : <span class="ip-address"></span></div>
+        <div class="inside-info">
+          <div class="lat-long">
+            <div>Lat : <span id="lat"></span></div>
+            <div>Long : <span id="long"></span></div>
+          </div>
+          <div class="city-region">
+            <div>City : <span id="city"></span></div>
+            <div>Region : <span id="region"></span></div>
+          </div>
+          <div class="org-host">
+            <div>Organisation : <span id="org"></span></div>
+            <div>Hostname : <span id="host"></span></div>
+          </div>
+        </div>
+      </section>
+      <section class="curr-loc">
+        <h3 style="color: #b8bccc">Your Current Location</h3>
+        <iframe src=""></iframe>
+      </section>
+      <section class="my-info">
+        <h3 style="color: white">More information About You</h3>
+        <div>Timezone : <span id="timezone"></span></div>
+        <div>
+          Date and Time : <span id="myDate"></span><span id="myTime"></span>
+        </div>
+        <div>Pincode : <span id="pincode"></span></div>
+        <div>Message : <span id="pincodes-found"></span></div>
+      </section>
+      <section class="post-offices-container">
+        <h3 style="color: white">Post Offices Near You</h3>
+        <div class="search-box">
+          <img src="../assets/search.png" alt="search-logo" />
+          <input type="text" placeholder="Search By Name" id="search" />
+        </div>
+        <div class="offices"></div>
+      </section>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
