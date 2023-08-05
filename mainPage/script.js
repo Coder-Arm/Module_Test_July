@@ -1,8 +1,5 @@
 const search = document.getElementById("search");
 
-if(!localStorage.getItem("ip-info")){
-    window.location.href = "../index.html";
-}
 const ipData = JSON.parse(localStorage.getItem("ip-info"));
  document.querySelector(".ip-address").innerText = ipData.query;
  document.getElementById("lat").innerText = ipData.lat;
